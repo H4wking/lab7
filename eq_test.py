@@ -1,3 +1,6 @@
+from equation import Polynomial, Quadratic
+
+
 def testPolynomialBasics():
     # we'll use a very simple str format...
     assert(str(Polynomial([1,2,3])) == "Polynomial(coeffs=[1, 2, 3])")
@@ -137,7 +140,6 @@ def testQuadraticClass():
     assert(q3.numberOfRealRoots() == 2)
     [root1, root2] = q3.getRealRoots() # smaller one first
     assert(math.isclose(root1, -3) and math.isclose(root2, 2))
-
     # Creating a non-quadratic "Quadratic" is an error
     ok = False # the exception turns this to True!
     try: q = Quadratic([1,2,3,4]) # this is cubic, should fail!
@@ -160,3 +162,5 @@ def testQuadraticClass():
 def testEquationClasses():
     testPolynomialClass()
     testQuadraticClass()
+
+testEquationClasses()
